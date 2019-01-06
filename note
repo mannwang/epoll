@@ -1,0 +1,8 @@
+[边缘触发条件下EPOLL事件]
+EPOLLOUT触发:
+  -连接建立时触发,表示可写
+  -write写满发送缓冲区,返回EAGAIN
+  -对端读了部分数据,发送缓冲区又可写了
+  -epoll_ctl重新设置EPOLLOUT,强制触发一次事件
+EPOLLIN触发:
+  -对端数据写入时触发
